@@ -33,6 +33,7 @@ public class UserRepository : IUserRepository
     public async Task<User> CreateAsync(User user)
     {
         using var conn = await _db.CreateConnectionAsync();
+
         var id = await conn.ExecuteScalarAsync<int>(
             @"INSERT INTO users (name, email, password_hash)
               VALUES (@Name, @Email, @PasswordHash)

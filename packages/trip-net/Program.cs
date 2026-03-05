@@ -20,6 +20,12 @@ builder.Services.AddSingleton<IDbConnectionFactory>(_ => new NpgsqlConnectionFac
 ));
 builder.Services.AddSingleton<DbInitializer>();
 
+// Services
+builder.Services.AddSingleton<
+    trip_net.Services.IPasswordHasher,
+    trip_net.Services.PasswordHasher
+>();
+
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITripRepository, TripRepository>();

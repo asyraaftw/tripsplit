@@ -7,3 +7,9 @@ public class User
     public string Email { get; set; } = string.Empty;
     public string PasswordHash { get; set; } = string.Empty;
 }
+
+public class VerifyPasswordRequest
+{
+    public int Id { get; set; }
+    public string Password { get; set; } = string.Empty;
+}

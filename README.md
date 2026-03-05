@@ -24,8 +24,8 @@
 
 2. Smart Settlement Optimizer
 
-Instead of: A pays B, B pays C, C pays A
-Optimize to: A pays C only
+- Instead of: A pays B, B pays C, C pays A
+- Optimize to: A pays C only
 
 3. Budget Tracking
 

@@ -26,6 +26,7 @@ import {
 // import FlagIcon from "@mui/icons-material/Flag";
 // import SettingsIcon from "@mui/icons-material/Settings";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 // Mock data for demonstration
 const groups = [
@@ -109,15 +110,15 @@ const Main = () => {
           }}
         >
           <List>
-            <ListItemButton selected>
+            <ListItemButton selected component={Link} href="/main">
               <ListItemIcon>
                 {/* <DashboardIcon color="primary" /> */}
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton component={Link} href="/trips">
               <ListItemIcon>{/* <HistoryIcon /> */}</ListItemIcon>
-              <ListItemText primary="Recent activity" />
+              <ListItemText primary="Trips" />
             </ListItemButton>
             <ListItemButton>
               <ListItemIcon>{/* <ReceiptLongIcon /> */}</ListItemIcon>

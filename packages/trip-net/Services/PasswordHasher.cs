@@ -14,7 +14,7 @@ public class PasswordHasher : IPasswordHasher
         var salt = RandomNumberGenerator.GetBytes(SaltSize);
         var hash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, Algorithm, HashSize);
 
-        return $"{Convert.ToHexString(salt)}.{Convert.ToHexString(hash)}";
+        return $"{Convert.ToBase64String(salt)}.{Convert.ToBase64String(hash)}";
     }
 
     public bool Verify(string password, string hashedPassword)
@@ -23,8 +23,8 @@ public class PasswordHasher : IPasswordHasher
         if (parts.Length != 2)
             return false;
 
-        var salt = Convert.FromHexString(parts[0]);
-        var expectedHash = Convert.FromHexString(parts[1]);
+        var salt = Convert.FromBase64String(parts[0]);
+        var expectedHash = Convert.FromBase64String(parts[1]);
 
         var actualHash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, Algorithm, HashSize);
 
